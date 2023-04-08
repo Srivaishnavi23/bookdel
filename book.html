@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointment Manager</title>
+    <script>
+      // Initialize an empty array to store the appointment details
+      var appointments = [];
+
+      // Function to add appointments to the array
+      function addAppointment() {
+        var name = document.getElementById("name").value;
+        var date = document.getElementById("date").value;
+        var time = document.getElementById("time").value;
+        appointments.push({"Name": name, "Date": date, "Time": time});
+        document.getElementById("name").value = "";
+        document.getElementById("date").value = "";
+        document.getElementById("time").value = "";
+        alert("Appointment added successfully.");
+      }
+
+      // Function to delete appointments from the array
+      function deleteAppointment() {
+        var name = document.getElementById("delete-name").value;
+        var index = -1;
+        for (var i = 0; i < appointments.length; i++) {
+          if (appointments[i].Name === name) {
+            index = i;
+            break;
+          }
+        }
+        if (index > -1) {
+          appointments.splice(index, 1);
+          document.getElementById("delete-name").value = "";
+          alert("Appointment deleted successfully.");
+        } else {
+          alert("Appointment not found.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Appointment Manager</h1>
+    <h2>Add Appointment</h2>
+    <form>
+      <label>Name:</label>
+      <input type="text" id="name" /><br />
+      <label>Date:</label>
+      <input type="text" id="date" /><br />
+      <label>Time:</label>
+      <input type="text" id="time" /><br />
+      <input type="button" value="Add" onclick="addAppointment()" />
+    </form>
+    <h2>Delete Appointment</h2>
+    <form>
+      <label>Name:</label>
+      <input type="text" id="delete-name" /><br />
+      <input type="button" value="Delete" onclick="deleteAppointment()" />
+    </form>
+  </body>
+</html>
+
+
+		  
+
+	<script src="book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.5/axios.min.js"></script>
+</body>
+</html>
